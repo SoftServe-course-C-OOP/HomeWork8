@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 namespace HomeWork8
 {
@@ -17,6 +18,7 @@ namespace HomeWork8
             Shapes.Add(new Square("Middle square", 5));
             Shapes.Add(new Square("Senior square", 6));
             Shapes.Add(new Square("TeamLead square", 7));
+            Console.WriteLine("\tTask 1 - set list of Shapes");
             foreach (Shape s in Shapes)
             {
                 if (s.GetType() == typeof(Circle) || s.GetType() == typeof(Square))
@@ -27,6 +29,24 @@ namespace HomeWork8
                 }
             }
             Console.WriteLine();
+
+            Console.WriteLine("\tTask 2 - Biggest Perimeter");
+            double perimeterMax = Shapes[0].Perimeter();
+            string name = null;
+            foreach (Shape s in Shapes)
+            {
+                if (s.Perimeter() > perimeterMax)
+                {
+                    perimeterMax = s.Perimeter();
+                    name = s.Name;
+                }
+                else
+                    continue;
+            }
+            Console.WriteLine($"Shape {name} has the biggest perimeter");
+            Console.WriteLine();
+
+            Console.WriteLine("\tTask 3 - sorted by area");
             Shapes.Sort();
             foreach (Shape s in Shapes)
             {
